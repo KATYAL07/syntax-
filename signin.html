@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+    <title>Welcome to Bangla Sahib</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f1f1f1;
+            background-image: url('{% static "gurudwara.jpg"%}');
+        }
+
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .heading {
+            text-align: center;
+            color: #3252A6;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 90%;
+            padding: 10px;
+            border-radius: 3px;
+            border: 1px solid #ccc;
+        }
+
+        .form-actions {
+            text-align: center;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: "white";
+            color: #fff;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: "light blue";
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">Welcome to Bangla Sahib</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username">
+            </div>
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password">
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn" onclick="redirectToWelcome()"><a href="/welcome/">Sign In</a></button>
+            </div>
+        </form>
+
+        <p>Don't have an account? <a href="/signup/">Sign Up</a></p>
+    </div>
+<script>
+        function redirectToWelcome() {
+           window.location.href = "welcome/"; // Redirect to the welcome page
+        }
+    </script>
+</body>
+</html>

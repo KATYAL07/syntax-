@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<!-- jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+<!-- Bootstrap JS -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+
+<!-- Add the Bootstrap modal markup -->
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="successModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="successModalLabel">Open the Locker</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Please enter PIN 3567 in the locker keypad to open it.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<head>
+    <title>Welcome to Bangla Sahib</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f1f1f1;
+        }
+
+        .container {
+            text-align: center;
+            max-width: 500px;
+            padding: 40px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .heading {
+            color: #3252A6;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            margin-top: 20px;
+        }
+
+        .button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            border: 2px solid #3252A6;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #3252A6;
+        }
+
+        .button-container .button:last-child {
+            margin-left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="heading">Welcome to Bangla Sahib</h2>
+        <div class="button-container">
+            <button class="button" onclick="chooselocker()">Choose a locker</button>
+            <button class="button" onclick="openlocker()">Get your stuff back</button >
+        </div>
+        <div>
+            <button class="button" onclick="logout()">Logout</button>
+        </div>
+    </div>
+</body>
+
+<script>
+    function chooselocker() {
+       window.location.href = "/chooselocker/";
+    }
+
+    function openlocker() {
+    $("#successModal").modal("show");
+
+    $("#successModal").on("hidden.bs.modal", function () {
+    window.location.href = "/welcome";
+    });
+    }
+
+    function logout() {
+        window.location.href = "/";
+    }
+</script>
+</html>
